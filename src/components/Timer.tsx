@@ -1,4 +1,4 @@
-import { useRecoilState } from "recoil"
+import { useRecoilState, useRecoilValue } from "recoil"
 import { hoursAtom, minutesAtom, secondsAtom, controlsState, timerState, timeAtom, formAtom } from "../store/atoms/atoms"
 import { useEffect } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -7,9 +7,6 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 function Timer() {
     const fullScreen = useFullScreenHandle();
-    const handleFS= () => {
-        fullScreen.enter
-    }
 
     console.log("Timer Page Rendered!")
     const [hour, setHour] = useRecoilState(hoursAtom);
@@ -17,7 +14,7 @@ function Timer() {
     const [seconds, setSeconds] = useRecoilState(secondsAtom);
 
     const [controls, setControls] = useRecoilState(controlsState);
-    const [timer, setTimer] = useRecoilState(timerState);
+    const timer = useRecoilValue(timerState);
 
     const [timeup, setTimeup] = useRecoilState(timeAtom);
     const [formData, setFormData] = useRecoilState(formAtom)

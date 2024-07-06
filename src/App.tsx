@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import Controls from "./components/Controls"
 import Timer from "./components/Timer"

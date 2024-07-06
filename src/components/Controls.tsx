@@ -1,6 +1,6 @@
-import { useRecoilState } from "recoil"
+import { useRecoilState, useSetRecoilState } from "recoil"
 import { hoursAtom, minutesAtom, secondsAtom, controlsState, timerState, timeAtom, formAtom } from "../store/atoms/atoms"
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 function Controls() {
 
@@ -11,7 +11,7 @@ function Controls() {
 
     const [controls, setControls] = useRecoilState(controlsState);
     const [timer, setTimer] = useRecoilState(timerState);
-    const [timeup, setTimeup] = useRecoilState(timeAtom)
+    const setTimeup = useSetRecoilState(timeAtom)
 
 
     // function startTimer(){
